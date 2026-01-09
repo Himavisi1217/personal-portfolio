@@ -29,10 +29,10 @@
         </nav>
 
         <main class="terminal-body">
-            
+
             <section id="home">
                 <div class="intro-text">
-                    <span class="prompt">root@himavisi:~$</span> 
+                    <span class="prompt">root@himavisi:~$</span>
                     <span class="command">whoami</span>
                     <h1 class="glitch-text" id="typing-text"></h1>
                     <p class="sub-text">Front-end Developer | Business Analyst</p>
@@ -48,9 +48,9 @@
             <section id="skills">
                 <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ./show_skills.py --interactive</h2>
                 <p class="comment">// Click on a skill to expand details</p>
-                
+
                 <div class="skill-list">
-                    
+
                     <div class="skill-item" onclick="toggleSkill(this)">
                         <div class="skill-header">
                             <i class="fa-brands fa-html5"></i>
@@ -96,9 +96,103 @@
                         </div>
                     </div>
 
-                     <div class="skill-item" onclick="toggleSkill(this)">
+                    <div class="skill-item" onclick="toggleSkill(this)">
                         <div class="skill-header">
                             <i class="fa-brands fa-python"></i>
                             <h3>Python & SQL</h3>
                             <span class="expand-icon">+</span>
                         </div>
+                        <div class="skill-detail">
+                            <p>> Data Analysis, Backend Logic, and Complex Querying.</p>
+                            <div class="progress-wrapper">
+                                <label>Proficiency: 85%</label>
+                                <div class="progress-bar"><div class="fill" style="width: 85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" onclick="toggleSkill(this)">
+                        <div class="skill-header">
+                            <i class="fa-brands fa-react"></i>
+                            <h3>React & JavaScript</h3>
+                            <span class="expand-icon">+</span>
+                        </div>
+                        <div class="skill-detail">
+                            <p>> Component-based architecture, State Management, and DOM Manipulation.</p>
+                            <div class="progress-wrapper">
+                                <label>Proficiency: 80%</label>
+                                <div class="progress-bar"><div class="fill" style="width: 80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ./load_projects.sh</h2>
+                <p class="comment">// Loading projects from repository...</p>
+                <div id="project-container">
+                    <p style="color: #888;">Loading projects...</p>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> cat education.txt</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 - 2025</div>
+                        <div class="timeline-content">
+                            <h3>BSc (Hons) Business Information Systems</h3>
+                            <h4>University of Westminster</h4>
+                            <p class="comment">// Specialization: Enterprise Systems & Data Analytics</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>Google Cloud Digital Leader Certification</h3>
+                            <h4>Google Cloud</h4>
+                            <p class="comment">// Cloud fundamentals and digital transformation</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>Agile Project Management (SCRUM)</h3>
+                            <h4>Professional Development</h4>
+                            <p class="comment">// Agile methodologies and team collaboration</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ./contact_info.sh</h2>
+                <div class="contact-box">
+                    <p><strong>Email:</strong> <a href="mailto:himavisi@example.com">himavisi@example.com</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Himavisi1217" target="_blank">github.com/Himavisi1217</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/himavisi-ekanayake" target="_blank">linkedin.com/in/himavisi-ekanayake</a></p>
+                    <p><strong>Location:</strong> London, UK</p>
+                </div>
+
+                <h3 style="margin-top: 40px; color: #fff;">Send Message</h3>
+                <form class="terminal-form" onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-neon">Send_Message()</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

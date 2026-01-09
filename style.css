@@ -266,6 +266,28 @@ h1::after {
     box-shadow: var(--neon-glow);
 }
 
+/* Status Online Indicator */
+.status-online {
+    color: #27c93f;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Section Title */
+.section-title {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+/* Intro Text */
+.intro-text { margin-bottom: 30px; }
+.bio { color: #aaa; line-height: 1.6; margin: 15px 0; }
+
 @media (max-width: 768px) {
     .nav-links { display: none; } 
     h1 { font-size: 1.5rem; }

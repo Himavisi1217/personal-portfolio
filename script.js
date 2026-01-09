@@ -137,3 +137,10 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// 5. Form Submission Handler
+function handleSubmit(event) {
+    event.preventDefault();
+    alert('Thank you for your message! I will get back to you soon.');
+    event.target.reset();
+}
