@@ -46,21 +46,21 @@ async function fetchProjects() {
             description: "Developed an AI-powered mobile app to support start-ups using Flutter and OpenAI API.",
             tech_stack: ["Flutter", "OpenAI API", "Mobile Dev"],
             // Matches your CV [cite: 36]
-            link: "https://github.com/Himavisi1217/BizStart-Pro" 
+            link: "" 
         },
         {
             title: "Organic Snacks Database",
             description: "CRUD-enabled web application with SQL database integration. Improved data accessibility and UI.",
             tech_stack: ["SQL", "HTML/CSS", "CRUD"],
             // Matches your CV [cite: 47]
-            link: "https://github.com/Himavisi1217/Organic-Snacks-DB"
+            link: ""
         },
         {
             title: "Team Check Insight",
             description: "Employee health analytics system. Led requirement analysis and prototype design.",
             tech_stack: ["Agile", "Analytics", "Prototyping"],
             // Matches your CV [cite: 50]
-            link: "https://github.com/Himavisi1217/Team-Check-Insight"
+            link: ""
         }
     ];
     
