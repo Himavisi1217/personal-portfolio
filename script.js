@@ -60,7 +60,7 @@ async function fetchProjects() {
             description: "Employee health analytics system. Led requirement analysis and prototype design.",
             tech_stack: ["Agile", "Analytics", "Prototyping"],
             // Matches your CV [cite: 50]
-            link: ""
+            link: "https://www.figma.com/proto/Rg3k78NMU2dShGKls63LVh/Team-Check-Insights?node-id=0-1&t=E7gHrUmm92O6B4kU-1"
         }
     ];
     
