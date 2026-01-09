@@ -46,7 +46,7 @@ async function fetchProjects() {
             description: "Developed an AI-powered mobile app to support start-ups using Flutter and OpenAI API.",
             tech_stack: ["Flutter", "OpenAI API", "Mobile Dev"],
             // Matches your CV [cite: 36]
-            link: "" 
+            link: "https://github.com/Himavisi1217/bizstartpro.git" 
         },
         {
             title: "Organic Snacks Database",
