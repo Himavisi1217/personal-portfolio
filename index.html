@@ -23,6 +23,7 @@
                 <li><a href="#home">/home</a></li>
                 <li><a href="#skills">/skills</a></li>
                 <li><a href="#projects">/projects</a></li>
+                <li><a href="#education">/education</a></li>
                 <li><a href="#contact">/contact</a></li>
             </ul>
         </nav>
@@ -34,9 +35,9 @@
                     <span class="prompt">root@himavisi:~$</span> 
                     <span class="command">whoami</span>
                     <h1 class="glitch-text" id="typing-text"></h1>
-                    <p class="sub-text">Front-end Developer | Business Analyst </p>
+                    <p class="sub-text">Front-end Developer | Business Analyst</p>
                     <p class="bio">
-                        > BSc (Hons) Business Information Systems Student @ UoW [cite: 30, 33]<br>
+                        > BSc (Hons) Business Information Systems Student @ UoW<br>
                         > Nexus of business strategy & technology.<br>
                         > status: <span class="status-online">online</span>
                     </p>
@@ -45,57 +46,59 @@
             </section>
 
             <section id="skills">
-                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ls -la /skills</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <i class="fa-brands fa-python"></i>
-                        <h3>Python</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fa-brands fa-react"></i>
-                        <h3>React</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fa-solid fa-database"></i>
-                        <h3>SQL</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fa-brands fa-js"></i>
-                        <h3>JavaScript</h3>
-                    </div>
-                     <div class="skill-card">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <h3>Data Analysis</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects">
-                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ./fetch_projects.sh</h2>
-                <div id="project-container" class="project-list">
-                    <div class="loading">Loading database connection...</div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> sudo mail -s "Hello"</h2>
-                <div class="contact-box">
-                    <p>> Email: <a href="mailto:himavisiekanayake1217@gmail.com" class="email-link">himavisiekanayake1217@gmail.com</a></p>
-                    <p>> LinkedIn: <a href="https://www.linkedin.com/in/himavisi-ekanayake" target="_blank">/in/himavisi-ekanayake</a> [cite: 5]</p>
-                    <p>> Phone: +94 701167145 [cite: 3]</p>
+                <h2 class="section-title"><span class="prompt">root@himavisi:~$</span> ./show_skills.py --interactive</h2>
+                <p class="comment">// Click on a skill to expand details</p>
+                
+                <div class="skill-list">
                     
-                    <form class="terminal-form">
-                        <input type="text" placeholder="--Enter Name--" required>
-                        <input type="email" placeholder="--Enter Email--" required>
-                        <textarea placeholder="--Enter Message--" rows="4"></textarea>
-                        <button type="submit" class="btn-neon">SEND_MESSAGE</button>
-                    </form>
-                </div>
-            </section>
-        </main>
-    </div>
+                    <div class="skill-item" onclick="toggleSkill(this)">
+                        <div class="skill-header">
+                            <i class="fa-brands fa-html5"></i>
+                            <h3>HTML5 & CSS3</h3>
+                            <span class="expand-icon">+</span>
+                        </div>
+                        <div class="skill-detail">
+                            <p>> Semantic markup, Flexbox/Grid, and Responsive Design.</p>
+                            <div class="progress-wrapper">
+                                <label>Proficiency: 90%</label>
+                                <div class="progress-bar"><div class="fill" style="width: 90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+                    <div class="skill-item" onclick="toggleSkill(this)">
+                        <div class="skill-header">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <h3>Flutter & Dart</h3>
+                            <span class="expand-icon">+</span>
+                        </div>
+                        <div class="skill-detail">
+                            <p>> Cross-platform mobile apps. Experience with BizStart Pro AI App.</p>
+                            <div class="progress-wrapper">
+                                <label>Proficiency: 80%</label>
+                                <div class="progress-bar"><div class="fill" style="width: 80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" onclick="toggleSkill(this)">
+                        <div class="skill-header">
+                            <i class="fa-brands fa-figma"></i>
+                            <h3>UI/UX Design (Figma)</h3>
+                            <span class="expand-icon">+</span>
+                        </div>
+                        <div class="skill-detail">
+                            <p>> Prototyping, Wireframing, and User-Centric Interface Design.</p>
+                            <div class="progress-wrapper">
+                                <label>Proficiency: 75%</label>
+                                <div class="progress-bar"><div class="fill" style="width: 75%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="skill-item" onclick="toggleSkill(this)">
+                        <div class="skill-header">
+                            <i class="fa-brands fa-python"></i>
+                            <h3>Python & SQL</h3>
+                            <span class="expand-icon">+</span>
+                        </div>
