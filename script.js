@@ -147,7 +147,7 @@ async function handleSubmit(event) {
     const message = form.elements['message']?.value || '';
 
     // TODO: replace these with values from your EmailJS account
-    const SERVICE_ID = 'your_service_id';
+    const SERVICE_ID = 'service_b4k8wwp';
     const TEMPLATE_ID = 'template_o2fn7hg';
     const PUBLIC_KEY = 'WuqXeJpJNvvBnauIR';
 
