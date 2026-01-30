@@ -93,34 +93,44 @@ function renderProjects(projects) {
 function initMatrix() {
     const canvas = document.getElementById('matrix-bg');
     const ctx = canvas.getContext('2d');
-    
+    if (!ctx) return;
+
+    // initialize size
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     // Characters to rain down
     const chars = "01010101 HIMAVISI SQL PYTHON REACT FLUTTER ";
     const font_size = 14;
-    const columns = canvas.width / font_size;
-    const drops = [];
+    const columns = Math.floor(canvas.width / font_size);
+    // use an array filled with 1s
+    const drops = new Array(columns).fill(1);
 
-    for(let x = 0; x < columns; x++) drops[x] = 1;
+    // expose some values to the resize handler
+    canvas._font_size = font_size;
+    canvas._columns = columns;
+    canvas._drops = drops;
 
     function draw() {
-        ctx.fillStyle = "rgba(5, 0, 0, 0.05)";
+        // stronger fade so overlapping characters appear brighter
+        ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = "#ff3333"; // Red Matrix Rain
-        ctx.font = font_size + "px arial";
-        
-        for(let i = 0; i < drops.length; i++) {
-            const text = chars[Math.floor(Math.random()*chars.length)];
-            ctx.fillText(text, i*font_size, drops[i]*font_size);
-            
-            if(drops[i]*font_size > canvas.height && Math.random() > 0.975)
-                drops[i] = 0;
-            drops[i]++;
+
+        // brighter red with subtle glow
+        ctx.fillStyle = "#ff6666";
+        ctx.font = `bold ${font_size}px monospace`;
+        ctx.shadowColor = "#ff6666";
+        ctx.shadowBlur = 6;
+
+        for (let i = 0; i < canvas._drops.length; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(text, i * font_size, canvas._drops[i] * font_size);
+
+            if (canvas._drops[i] * font_size > canvas.height && Math.random() > 0.975) canvas._drops[i] = 0;
+            canvas._drops[i]++;
         }
     }
+
     setInterval(draw, 35);
 }
 
@@ -134,50 +144,41 @@ window.onload = () => {
 // Handle window resize for Matrix
 window.addEventListener('resize', () => {
     const canvas = document.getElementById('matrix-bg');
+    const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    // recompute columns/drops so rain scales with new width
+    const font_size = canvas._font_size || 14;
+    const columns = Math.floor(canvas.width / font_size);
+    canvas._columns = columns;
+    canvas._drops = new Array(columns).fill(1);
+    if (ctx) ctx.font = `bold ${font_size}px monospace`;
 });
 
-// 5. Form Submission Handler (EmailJS REST)
+// 5. Form Submission Handler (FormSubmit.co - no service id required)
 async function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const name = form.elements['name']?.value || '';
-    const email = form.elements['email']?.value || '';
-    const message = form.elements['message']?.value || '';
-
-    // TODO: replace these with values from your EmailJS account
-    const SERVICE_ID = 'service_b4k8wwp';
-    const TEMPLATE_ID = 'template_o2fn7hg';
-    const PUBLIC_KEY = 'WuqXeJpJNvvBnauIR';
-
-    const templateParams = {
-        from_name: name,
-        from_email: email,
-        message: message,
-        to_email: 'himavisiekanayake676@gmail.com'
-    };
+    const formData = new FormData(form);
 
     try {
-        const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        const res = await fetch('https://formsubmit.co/ajax/himavisiekanayake676@gmail.com', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                service_id: SERVICE_ID,
-                template_id: TEMPLATE_ID,
-                user_id: PUBLIC_KEY,
-                template_params: templateParams
-            })
+            headers: { 'Accept': 'application/json' },
+            body: formData
         });
 
+        const data = await res.json().catch(() => ({}));
         if (res.ok) {
             alert('Message sent — thank you!');
             form.reset();
         } else {
-            const text = await res.text();
-            alert('Send failed: ' + text);
+            console.error('FormSubmit error:', res.status, data);
+            alert('Send failed: ' + (data.message || JSON.stringify(data)));
         }
     } catch (err) {
+        console.error('Send error:', err);
         alert('Send error: ' + err.message);
     }
 }
