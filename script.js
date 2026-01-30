@@ -138,9 +138,46 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
-// 5. Form Submission Handler
-function handleSubmit(event) {
+// 5. Form Submission Handler (EmailJS REST)
+async function handleSubmit(event) {
     event.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    event.target.reset();
+    const form = event.target;
+    const name = form.elements['name']?.value || '';
+    const email = form.elements['email']?.value || '';
+    const message = form.elements['message']?.value || '';
+
+    // TODO: replace these with values from your EmailJS account
+    const SERVICE_ID = 'your_service_id';
+    const TEMPLATE_ID = 'template_o2fn7hg';
+    const PUBLIC_KEY = 'WuqXeJpJNvvBnauIR';
+
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: 'himavisiekanayake676@gmail.com'
+    };
+
+    try {
+        const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_id: SERVICE_ID,
+                template_id: TEMPLATE_ID,
+                user_id: PUBLIC_KEY,
+                template_params: templateParams
+            })
+        });
+
+        if (res.ok) {
+            alert('Message sent — thank you!');
+            form.reset();
+        } else {
+            const text = await res.text();
+            alert('Send failed: ' + text);
+        }
+    } catch (err) {
+        alert('Send error: ' + err.message);
+    }
 }
