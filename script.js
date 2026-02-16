@@ -56,6 +56,13 @@ async function fetchProjects() {
             link: ""
         },
         {
+            title: "Task Management Application",
+            description: "An application that can be used to assign tasks to employees and track their progress.",
+            tech_stack: ["React native" ,"expo","Firebase"],
+            // Matches your CV [cite: 47]
+            link: ""
+        },https://github.com/Himavisi1217/task-management-system.git
+        {
             title: "Team Check Insight",
             description: "Employee health analytics system. Led requirement analysis and prototype design.",
             tech_stack: ["Agile", "Analytics", "Prototyping"],
