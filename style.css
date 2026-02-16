@@ -83,8 +83,8 @@ section { margin-bottom: 80px; scroll-margin-top: 80px;}
 h1 { font-size: 2.2rem; margin: 20px 0; color: #fff; min-height: 50px;}
 .sub-text { color: var(--accent-color); font-size: 1.2rem; margin-bottom: 15px; }
 
-/* Cursor Animation */
-h1::after {
+/* Cursor Animation - only show after typing is complete */
+h1.typing-complete::after {
     content: '|';
     animation: blink 1s infinite;
 }
@@ -174,9 +174,9 @@ h1::after {
 }
 .fill {
     height: 100%;
-    background: var(--primary-red);
+    background: linear-gradient(90deg, var(--primary-red), #ff6666);
     box-shadow: 0 0 10px var(--primary-red);
-    width: 0; 
+    width: 0;
     transition: width 1s ease-in-out;
 }
 

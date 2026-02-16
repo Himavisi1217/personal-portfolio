@@ -8,13 +8,46 @@ function typeWriter() {
         element.innerHTML += nameText.charAt(index);
         index++;
         setTimeout(typeWriter, 100); // Speed of typing
+    } else {
+        // Add blinking cursor after typing is complete
+        element.classList.add('typing-complete');
     }
 }
 
 // 2. Interactive Skills (Accordion Logic)
 function toggleSkill(element) {
+    // Close other active items
+    const allItems = document.querySelectorAll('.skill-item');
+    allItems.forEach(item => {
+        if (item !== element && item.classList.contains('active')) {
+            item.classList.remove('active');
+            const fills = item.querySelectorAll('.fill');
+            fills.forEach(fill => {
+                if (fill) fill.style.width = '0';
+            });
+        }
+    });
+
     // Toggle the 'active' class on the clicked item
-    element.classList.toggle('active');
+    const isActive = element.classList.toggle('active');
+    
+    // Animate progress bar
+    const fill = element.querySelector('.fill');
+    if (fill) {
+        if (isActive) {
+            // Store original width if not already stored
+            if (!fill.dataset.targetWidth) {
+                fill.dataset.targetWidth = fill.style.width || '0%';
+            }
+            // Animate from 0 to target
+            fill.style.width = '0';
+            setTimeout(() => {
+                fill.style.width = fill.dataset.targetWidth;
+            }, 100);
+        } else {
+            fill.style.width = '0';
+        }
+    }
 }
 
 // 3. Database Connection & Project Rendering
@@ -60,8 +93,8 @@ async function fetchProjects() {
             description: "An application that can be used to assign tasks to employees and track their progress.",
             tech_stack: ["React native" ,"expo","Firebase"],
             // Matches your CV [cite: 47]
-            link: ""
-        },https://github.com/Himavisi1217/task-management-system.git
+            link: "https://github.com/Himavisi1217/task-management-system.git"
+        },
         {
             title: "Team Check Insight",
             description: "Employee health analytics system. Led requirement analysis and prototype design.",
@@ -84,12 +117,17 @@ function renderProjects(projects) {
     projects.forEach(proj => {
         const techHtml = proj.tech_stack.map(t => `<span class="tech-tag">${t}</span>`).join('');
         
+        // Only show link button if link exists
+        const linkButton = proj.link 
+            ? `<a href="${proj.link}" target="_blank" class="btn-neon" style="font-size: 0.8rem;">View_Source</a>`
+            : `<span class="btn-neon" style="font-size: 0.8rem; opacity: 0.5; cursor: not-allowed;">No_Link_Available</span>`;
+        
         const card = `
             <div class="project-card">
                 <h3>> ${proj.title}</h3>
                 <p style="margin: 10px 0; color: #aaa;">${proj.description}</p>
                 <div style="margin-bottom: 10px;">${techHtml}</div>
-                <a href="${proj.link}" target="_blank" class="btn-neon" style="font-size: 0.8rem;">View_Source</a>
+                ${linkButton}
             </div>
         `;
         container.innerHTML += card;
