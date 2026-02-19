@@ -1,5 +1,5 @@
 // 1. Typing Animation for Name
-const nameText = "HIMAVISI EKANAYAKE"; 
+const nameText = "HIMAVISI EKANAYAKE";
 const element = document.getElementById("typing-text");
 let index = 0;
 
@@ -30,7 +30,7 @@ function toggleSkill(element) {
 
     // Toggle the 'active' class on the clicked item
     const isActive = element.classList.toggle('active');
-    
+
     // Animate progress bar
     const fill = element.querySelector('.fill');
     if (fill) {
@@ -58,7 +58,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 async function fetchProjects() {
     const container = document.getElementById('project-container');
-    
+
     // --- MODE A: REAL DATABASE (Uncomment later) ---
     /*
     const { data, error } = await _supabase
@@ -79,7 +79,15 @@ async function fetchProjects() {
             description: "Developed an AI-powered mobile app to support start-ups using Flutter and OpenAI API.",
             tech_stack: ["Flutter", "OpenAI API", "Mobile Dev"],
             // Matches your CV [cite: 36]
-            link: "https://github.com/Himavisi1217/bizstartpro.git" 
+            link: "https://github.com/Himavisi1217/bizstartpro.git"
+        },
+        const dummyData = [
+        {
+            title: "Business Solutions Web Template",
+            description: "Developed a website template for a business to showcase their solutions",
+            tech_stack: ["React", "HTML", "CSS", "JavaScript"],
+            // Matches your CV [cite: 36]
+            link: "https://github.com/Himavisi1217/company-solution-showcase.git"
         },
         {
             title: "Organic Snacks Database",
@@ -91,7 +99,7 @@ async function fetchProjects() {
         {
             title: "Task Management Application",
             description: "An application that can be used to assign tasks to employees and track their progress.",
-            tech_stack: ["React native" ,"expo","Firebase"],
+            tech_stack: ["React native", "expo", "Firebase"],
             // Matches your CV [cite: 47]
             link: "https://github.com/Himavisi1217/task-management-system.git"
         },
@@ -103,7 +111,7 @@ async function fetchProjects() {
             link: "https://www.figma.com/design/Rg3k78NMU2dShGKls63LVh/Team-Check-Insights?node-id=0-1&t=m4X8kz9KA8ITJCHL-1"
         }
     ];
-    
+
     // Simulate network delay for "hacker" feel
     setTimeout(() => {
         renderProjects(dummyData);
@@ -116,12 +124,12 @@ function renderProjects(projects) {
 
     projects.forEach(proj => {
         const techHtml = proj.tech_stack.map(t => `<span class="tech-tag">${t}</span>`).join('');
-        
+
         // Only show link button if link exists
-        const linkButton = proj.link 
+        const linkButton = proj.link
             ? `<a href="${proj.link}" target="_blank" class="btn-neon" style="font-size: 0.8rem;">View_Source</a>`
             : `<span class="btn-neon" style="font-size: 0.8rem; opacity: 0.5; cursor: not-allowed;">No_Link_Available</span>`;
-        
+
         const card = `
             <div class="project-card">
                 <h3>> ${proj.title}</h3>
@@ -183,7 +191,7 @@ function initMatrix() {
 window.onload = () => {
     typeWriter();
     fetchProjects();
-    initMatrix(); 
+    initMatrix();
 };
 
 // Handle window resize for Matrix
