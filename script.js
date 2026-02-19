@@ -78,36 +78,30 @@ async function fetchProjects() {
             title: "BizStart Pro (Final Year Project)",
             description: "Developed an AI-powered mobile app to support start-ups using Flutter and OpenAI API.",
             tech_stack: ["Flutter", "OpenAI API", "Mobile Dev"],
-            // Matches your CV [cite: 36]
             link: "https://github.com/Himavisi1217/bizstartpro.git"
         },
-        const dummyData = [
         {
             title: "Business Solutions Web Template",
             description: "Developed a website template for a business to showcase their solutions",
             tech_stack: ["React", "HTML", "CSS", "JavaScript"],
-            // Matches your CV [cite: 36]
             link: "https://github.com/Himavisi1217/company-solution-showcase.git"
         },
         {
             title: "Organic Snacks Database",
             description: "CRUD-enabled web application with SQL database integration. Improved data accessibility and UI.",
             tech_stack: ["SQL", "HTML/CSS", "CRUD"],
-            // Matches your CV [cite: 47]
             link: ""
         },
         {
             title: "Task Management Application",
             description: "An application that can be used to assign tasks to employees and track their progress.",
             tech_stack: ["React native", "expo", "Firebase"],
-            // Matches your CV [cite: 47]
             link: "https://github.com/Himavisi1217/task-management-system.git"
         },
         {
             title: "Team Check Insight",
             description: "Employee health analytics system. Led requirement analysis and prototype design.",
             tech_stack: ["Agile", "Analytics", "Prototyping"],
-            // Matches your CV [cite: 50]
             link: "https://www.figma.com/design/Rg3k78NMU2dShGKls63LVh/Team-Check-Insights?node-id=0-1&t=m4X8kz9KA8ITJCHL-1"
         }
     ];
