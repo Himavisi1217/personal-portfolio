@@ -176,7 +176,7 @@ function initMatrix() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // brighter red with subtle glow
-        ctx.fillStyle = "#ff6666";
+        ctx.fillStyle = "#ff7474";
         ctx.font = `bold ${font_size}px monospace`;
         ctx.shadowColor = "#ff6666";
         ctx.shadowBlur = 6;
