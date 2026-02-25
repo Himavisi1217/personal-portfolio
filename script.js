@@ -172,14 +172,14 @@ function initMatrix() {
 
     function draw() {
         // stronger fade so overlapping characters appear brighter
-        ctx.fillStyle = "rgba(0, 0, 0, 0.06)";
+        ctx.fillStyle = "rgba(0, 0, 0, 0.07)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // brighter red with subtle glow
-        ctx.fillStyle = "#ff9a9a";
+        ctx.fillStyle = "#ff8888";
         ctx.font = `bold ${font_size}px monospace`;
-        ctx.shadowColor = "#ff9a9a";
-        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#ff8888";
+        ctx.shadowBlur = 8;
 
         for (let i = 0; i < canvas._drops.length; i++) {
             const text = chars[Math.floor(Math.random() * chars.length)];
