@@ -178,7 +178,7 @@ function initMatrix() {
         // brighter red with subtle glow
         ctx.fillStyle = "#ff8888";
         ctx.font = `bold ${font_size}px monospace`;
-        ctx.shadowColor = "#ff8888";
+        ctx.shadowColor = "#ff6666";
         ctx.shadowBlur = 8;
 
         for (let i = 0; i < canvas._drops.length; i++) {
