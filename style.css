@@ -313,7 +313,8 @@ h1.typing-complete::after {
 .hero-logo {
     width: 220px;
     max-width: 75vw;
-    margin-bottom: 18px;
+    display: block;
+    margin: 0 auto 18px auto;
     object-fit: contain;
     filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.25));
 }
