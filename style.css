@@ -222,6 +222,17 @@ h1.typing-complete::after {
     margin-bottom: 5px;
     font-weight: bold;
 }
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--primary-red);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background: rgba(255, 51, 51, 0.15);
+    vertical-align: middle;
+}
 .timeline-content h3 { font-size: 1.2rem; color: #fff; margin: 0; }
 .timeline-content h4 { font-size: 1rem; color: #888; margin: 5px 0 10px 0; font-weight: 300; }
 .comment { color: #555; font-style: italic; margin-bottom: 15px; }

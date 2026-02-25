@@ -117,17 +117,29 @@ function renderProjects(projects) {
     container.innerHTML = ''; // Clear loading text
 
     projects.forEach(proj => {
-        const techHtml = proj.tech_stack.map(t => `<span class="tech-tag">${t}</span>`).join('');
+        const techStack = Array.isArray(proj.tech_stack)
+            ? proj.tech_stack
+            : typeof proj.tech_stack === 'string' && proj.tech_stack.trim().length > 0
+                ? proj.tech_stack.split(',').map(item => item.trim()).filter(Boolean)
+                : [];
+
+        const techHtml = techStack.length > 0
+            ? techStack.map(t => `<span class="tech-tag">${t}</span>`).join('')
+            : `<span class="tech-tag">General</span>`;
+
+        const title = proj.title || 'Untitled Project';
+        const description = proj.description || 'No description available.';
+        const link = typeof proj.link === 'string' ? proj.link.trim() : '';
 
         // Only show link button if link exists
-        const linkButton = proj.link
-            ? `<a href="${proj.link}" target="_blank" class="btn-neon" style="font-size: 0.8rem;">View_Source</a>`
+        const linkButton = link
+            ? `<a href="${link}" target="_blank" class="btn-neon" style="font-size: 0.8rem;">View_Source</a>`
             : `<span class="btn-neon" style="font-size: 0.8rem; opacity: 0.5; cursor: not-allowed;">No_Link_Available</span>`;
 
         const card = `
             <div class="project-card">
-                <h3>> ${proj.title}</h3>
-                <p style="margin: 10px 0; color: #aaa;">${proj.description}</p>
+                <h3>> ${title}</h3>
+                <p style="margin: 10px 0; color: #aaa;">${description}</p>
                 <div style="margin-bottom: 10px;">${techHtml}</div>
                 ${linkButton}
             </div>
